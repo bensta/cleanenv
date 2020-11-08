@@ -352,7 +352,7 @@ func parseValue(field reflect.Value, value, sep string, layout *string) error {
 	switch valueType.Kind() {
 	// parse string value
 	case reflect.String:
-		field.SetString(value)
+		field.SetString(os.ExpandEnv(value))
 
 	// parse boolean value
 	case reflect.Bool:
